@@ -1,1 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raheel Lakdawala | Elite Web Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #ffffff;
+            --bg-alt: #f8fafc;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --whatsapp: #25D366;
+            --whatsapp-hover: #1ea952;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif; /* Switched to Inter for that clean, Apple-like tech look */
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Gradient Text Utility */
+        .gradient-text {
+            background: linear-gradient(135deg, #2563eb, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: rgba(255, 255, 255, 0.9);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 900;
+            color: var(--text-main);
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 3rem;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 5%;
+            background: radial-gradient(circle at 50% -20%, #f1f5f9 0%, #ffffff 100%);
+            animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .hero h1 {
+            font-size: 6rem; /* Massive font size */
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.05;
+            letter-spacing: -2.5px;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 1.5rem; /* Larger paragraph */
+            color: var(--text-muted);
+            max-width: 800px;
+            margin-bottom: 3.5rem;
+            font-weight: 300;
+        }
+
+        /* Buttons */
+        .btn-group {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 1.25rem 3rem;
+            background-color: var(--text-main);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.25);
+            background-color: black;
+        }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.2);
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: var(--whatsapp-hover);
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.3);
+        }
+
+        /* Sections General */
+        section {
+            padding: 8rem 5%; /* Huge padding for white space */
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3.5rem;
+            margin-bottom: 5rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* Cards (Clean White Aesthetic) */
+        .card {
+            background: #ffffff;
+            padding: 3.5rem;
+            border-radius: 24px;
+            text-align: left;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.05); /* Premium soft shadow */
+        }
+
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 30px 60px -15px rgba(0,0,0,0.1);
+            border-color: rgba(37, 99, 235, 0.1);
+        }
+
+        .card h3 {
+            margin-bottom: 1.2rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            line-height: 1.7;
+        }
+
+        /* Reviews Section */
+        .reviews {
+            background-color: var(--bg-alt);
+        }
+
+        .stars {
+            color: #fbbf24;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            letter-spacing: 3px;
+        }
+
+        .quote {
+            font-style: italic;
+            margin-bottom: 2rem;
+            color: var(--text-main);
+            font-size: 1.2rem;
+            line-height: 1.8;
+            font-weight: 500;
+        }
+
+        .client-name {
+            font-weight: 700;
+            color: var(--text-main);
+            font-size: 1.2rem;
+        }
+
+        .client-role {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-top: 0.2rem;
+        }
+
+        /* Footer / Contact */
+        footer {
+            text-align: center;
+            padding: 10rem 5% 6rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: var(--bg-main);
+        }
+
+        footer h2 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+            line-height: 1.1;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            margin-bottom: 4rem;
+            font-size: 1.5rem;
+            max-width: 600px;
+        }
+
+        .copyright {
+            margin-top: 8rem;
+            color: #94a3b8;
+            font-size: 1rem;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3.5rem; }
+            .hero p { font-size: 1.2rem; }
+            footer h2 { font-size: 3rem; }
+            .nav-links { display: none; }
+            .btn-group { flex-direction: column; width: 100%; max-width: 350px; margin: 0 auto;}
+            .btn { width: 100%; text-align: center; }
+            section { padding: 5rem 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">Raheel<span class="gradient-text">.Dev</span></a>
+        <div class="nav-links">
+            <a href="#services">Capabilities</a>
+            <a href="#reviews">Testimonials</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Digital Excellence.<br><span class="gradient-text">Engineered Perfectly.</span></h1>
+        <p>I'm Raheel Lakdawala. I build elite, high-performance web applications that demand attention and drive relentless business growth.</p>
+        <div class="btn-group">
+            <a href="#contact" class="btn">Start a Project</a>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <h2 class="section-title">My <span class="gradient-text">Capabilities</span></h2>
+        <div class="grid">
+            <div class="card">
+                <h3>High-Performance UIs</h3>
+                <p>Developing incredibly fast, responsive frontend experiences. I focus on smooth animations, clean layouts, and pixel-perfect design that feels native on any device.</p>
+            </div>
+            <div class="card">
+                <h3>Real-Time Architectures</h3>
+                <p>Engineering robust backend systems and databases. From standard APIs to fully private, real-time chat web applications built for speed and absolute security.</p>
+            </div>
+            <div class="card">
+                <h3>Conversion Psychology</h3>
+                <p>A website shouldn't just look good; it must perform. I design user journeys specifically engineered to convert casual visitors into paying clients.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="reviews">
+        <h2 class="section-title">Client <span class="gradient-text">Testimonials</span></h2>
+        <div class="grid">
+            <div class="card">
+                <div class="stars">★★★★★</div>
+                <p class="quote">"Raheel’s work is simply on another level. The site is lightning-fast, the code is immaculate, and he delivered the entire project well ahead of our deadline."</p>
+                <p class="client-name">Sarah Jenkins</p>
+                <p class="client-role">CEO, TechFlow</p>
+            </div>
+            <div class="card">
+                <div class="stars">★★★★★</div>
+                <p class="quote">"We needed a complex, highly secure application built from the ground up. Raheel executed the architecture flawlessly. His technical depth is incredibly impressive."</p>
+                <p class="client-name">David Chen</p>
+                <p class="client-role">Operations Director</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="padding: 0;">
+        <footer>
+            <h2>Ready to dominate <br>your industry?</h2>
+            <p>Let's build a digital presence that leaves your competitors behind.</p>
+            
+            <div class="btn-group">
+                <a href="mailto:raheellakdawala24@gmail.com" class="btn" style="background-color: var(--primary);">Email Raheel</a>
+                
+                <a href="https://wa.me/919898656918?text=Hi" target="_blank" class="btn btn-whatsapp">Message on WhatsApp</a>
+            </div>
+
+            <div class="copyright">
+                &copy; 2026 Raheel Lakdawala. Built for excellence.
+            </div>
+        </footer>
+    </section>
+
+</body>
+</html>
