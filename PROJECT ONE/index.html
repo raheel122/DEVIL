@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raheel Lakdawala | Professional Web Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --primary: #3b82f6;
+            --primary-hover: #2563eb;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 5%;
+            background: rgba(15, 23, 42, 0.9);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 5%;
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+        }
+
+        /* Skills / Services */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .section-title span {
+            color: var(--primary);
+        }
+
+        .services {
+            padding: 5rem 5%;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+        }
+
+        /* Reviews / Testimonials */
+        .reviews {
+            padding: 5rem 5%;
+            background-color: #0b1120;
+        }
+
+        .review-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .stars {
+            color: #fbbf24;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .quote {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .client-name {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .client-role {
+            font-size: 0.9rem;
+            color: var(--primary);
+        }
+
+        /* Footer / Contact */
+        footer {
+            text-align: center;
+            padding: 5rem 5%;
+        }
+
+        footer h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">Raheel<span>.Dev</span></a>
+        <div class="nav-links">
+            <a href="#services">Expertise</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Building Digital Experiences That <span>Convert.</span></h1>
+        <p>Hi, I'm Raheel Lakdawala. I engineer high-performance, scalable web applications that turn visitors into loyal customers. Stop settling for slow, outdated websites.</p>
+        <a href="#contact" class="btn">Let's Build Something Great</a>
+    </section>
+
+    <section id="services" class="services">
+        <h2 class="section-title">My <span>Expertise</span></h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Frontend Development</h3>
+                <p>Creating pixel-perfect, responsive user interfaces that provide an unforgettable user experience across all devices.</p>
+            </div>
+            <div class="card">
+                <h3>Backend Architecture</h3>
+                <p>Building secure, scalable, and lightning-fast server-side solutions. From databases to real-time chat infrastructures.</p>
+            </div>
+            <div class="card">
+                <h3>Conversion Optimization</h3>
+                <p>Designing websites with psychology in mind to maximize user engagement, retention, and sales.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="reviews">
+        <h2 class="section-title">Client <span>Reviews</span></h2>
+        <div class="grid">
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="quote">"Raheel completely transformed our online presence. His code is spotless, and the site speed doubled. He delivered ahead of schedule. Highly recommended!"</p>
+                <p class="client-name">Sarah Jenkins</p>
+                <p class="client-role">CEO, TechFlow</p>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="quote">"Finding a developer who understands both flawless design and complex backend logic is rare. Raheel is an absolute professional who knows exactly how to get results."</p>
+                <p class="client-name">Marcus Thorne</p>
+                <p class="client-role">Founder, Elevate E-Commerce</p>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="quote">"We needed a highly secure, private web application built from scratch. Raheel executed it perfectly. His communication and technical skills are unmatched."</p>
+                <p class="client-name">David Chen</p>
+                <p class="client-role">Operations Director</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <h2>Ready to dominate your market?</h2>
+        <p>Let's discuss how my web development services can scale your business to the next level.</p>
+        <a href="mailto:your-email@example.com" class="btn">Start a Project</a>
+    </footer>
+
+</body>
+</html>
